@@ -8,13 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Mirror the Github organization repos to Gitee.
+    - name: 同步 Github---Gitee.
       uses: Yikun/gitee-mirror-action@v0.01
       with:
         # 必选，需要同步的Github用户（源）
-        src: github/Yikun
+        src: github/zsh35
         # 必选，需要同步到的Gitee的用户（目的）
-        dst: gitee/yikunkero
+        dst: gitee/zsh35
         # 必选，Gitee公钥对应的私钥，https://gitee.com/profile/sshkeys
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         # 必选，Gitee对应的用于创建仓库的token，https://gitee.com/profile/personal_access_tokens
