@@ -10,17 +10,7 @@ on:
     branches: [ master ]
   repository_dispatch:
     types: 同步-zsh35-scripts
-jobs:
-  repo-sync:
-    env:
-      PAT: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
-      dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
+    
       - name: 同步 zsh35-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
