@@ -11,9 +11,9 @@ on:
   repository_dispatch:
     types: 同步-zsh35-scripts
     
-      - name: 同步 zsh35-scripts
-        uses: repo-sync/github-sync@v2
-        if: env.PAT
+    
+       
+      
         with:
           source_repo: "https://github.com/zsh35/scripts.git"
           source_branch: "master"
