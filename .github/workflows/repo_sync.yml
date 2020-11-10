@@ -1,5 +1,5 @@
 # File: .github/workflows/repo-sync.yml
-name: sync-lxk0301-scripts
+name: 同步-zsh35-scripts
 on:
   schedule:
     - cron: '1 0,15 * * *'
@@ -9,7 +9,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: sync-lxk0301-scripts
+    types: 同步-zsh35-scripts
 jobs:
   repo-sync:
     env:
@@ -21,7 +21,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync lxk0301-scripts
+      - name: 同步 zsh35-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
@@ -30,12 +30,12 @@ jobs:
           destination_branch: "master"
           github_token: ${{ secrets.PAT }}
       # 我自己同步到gitee使用，其他人可忽略
-      - name: sync github -> gitee
+      - name: 同步 github -> gitee
         uses: Yikun/hub-mirror-action@master
         if: env.dst_key
         with:
-          src: github//zsh35
-          dst: gitee//zsh35
+          src: github/zsh35
+          dst: gitee/zsh35
           static_list: "scripts"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
